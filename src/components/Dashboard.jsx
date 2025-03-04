@@ -56,6 +56,15 @@ const Dashboard = () => {
     checkAuthAndGetUserData();
   }, [navigate, location]);
 
+  const handleProfile = () => {
+    // This is a placeholder for the future profile page
+    alert("Profile page coming soon!");
+  };
+
+  const handleSyncFace = () => {
+    navigate("/upload-image");
+  };
+
   return (
     <div style={{
       position: "fixed",
@@ -90,15 +99,85 @@ const Dashboard = () => {
             <h2 style={{
               textAlign: "center",
               fontSize: "24px",
-              marginBottom: "20px",
+              marginBottom: "40px",
               color: "#4a4a4a"
             }}>
               Welcome to FaceSync, {userName}
             </h2>
             
             <div style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: "20px",
+              flexWrap: "wrap",
+              marginBottom: "40px"
+            }}>
+              <button
+                onClick={handleProfile}
+                style={{
+                  width: "180px",
+                  padding: "15px 20px",
+                  backgroundColor: "#f1f1f1",
+                  color: "#4a4a4a",
+                  border: "none",
+                  borderRadius: "8px",
+                  cursor: "pointer",
+                  fontSize: "16px",
+                  boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+                  transition: "transform 0.2s, box-shadow 0.2s",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "10px"
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                  e.currentTarget.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "0 2px 4px rgba(0,0,0,0.1)";
+                }}
+              >
+                <span style={{ fontSize: "24px" }}>👤</span>
+                <span>Profile</span>
+              </button>
+              
+              <button
+                onClick={handleSyncFace}
+                style={{
+                  width: "180px",
+                  padding: "15px 20px",
+                  backgroundColor: "#4285f4",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "8px",
+                  cursor: "pointer",
+                  fontSize: "16px",
+                  boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+                  transition: "transform 0.2s, box-shadow 0.2s",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "10px"
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                  e.currentTarget.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "0 2px 4px rgba(0,0,0,0.1)";
+                }}
+              >
+                <span style={{ fontSize: "24px" }}>🔄</span>
+                <span>Sync Face</span>
+              </button>
+            </div>
+            
+            <div style={{
               textAlign: "center",
-              marginTop: "40px"
+              marginTop: "20px"
             }}>
               <button 
                 onClick={() => {
